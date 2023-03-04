@@ -1,8 +1,10 @@
-// const express = require('express');
+
 import express from 'express';
 import route from './routes.js';
+import cors from 'cors';
 
 const api = express();
+api.use(cors());
 
 api.use(express.json()); // informando o tipo de comunicação entre front e back
 

@@ -4,9 +4,9 @@ import database from "../services/user.js"
 const routes = express.Router();
 
 routes.post('/', async (request, response) => { // request (recebe dado front) response (envia dados back)
-  const {nome,email,senha,tipo_usuario} = request.body;
+  const {nome,email,senha} = request.body;
 
-   await database.createUser(nome,email,senha,tipo_usuario);//aguardar a função
+   await database.createUser(nome,email,senha);//aguardar a função
 
   //console.log(nome,email,senha,tipo_usuario)
   response.status(200).send('Pai ta on...')//O que responde pro front

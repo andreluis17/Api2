@@ -1,18 +1,18 @@
 //criar um arquivo para cada serviço como pro usuario ou banco 
 import database from '../repository/conection.js';
 
-async function createUser(nome, email, senha, tipo_usuario){
+async function createUser(nome, email, senha){
   const sql = 'INSERT INTO tbl_usuario(nome,email,senha, tipo_usuario) values (?, ?, ?, ?)';
-  const dados = [nome,email,senha,tipo_usuario];
+  const dados = [nome,email,senha];
 
   const conn = await database.connect()
   conn.query(sql, dados) // executar o comando solicitado
   conn.end(); // fechar conexão com o banco
 }
 
-async function updateUSER(nome,email,senha, tipo_usuario, id_usuario){
+async function updateUSER(nome,email,senha, id_usuario){
   const sql = 'UPDATE tbl_usuario SET nome = ?, email = ?, senha = ?, tipo_usuario = ? WHERE id_usuario = ?';
-  const dados = [nome,email,senha, tipo_usuario, id_usuario]
+  const dados = [nome,email,senha, id_usuario]
   
   const conn = await database.connect();
   conn.query(sql, dados) // executar o comando solicitado
